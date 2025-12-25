@@ -1,0 +1,294 @@
+.theme-light .stopwatch {
+    background: radial-gradient(circle, #fff 60%, #e0e0e0 100%);
+    border: 6px solid #bbb;
+    color: #181515;
+}
+.theme-light .dial {
+    background: none;
+}
+.theme-light .tick {
+    background-color: #bbb;
+}
+.theme-light .tick.major {
+    background-color: #181515;
+}
+.theme-light .tick-number {
+    color: #888;
+}
+.theme-light .center-panel {
+    border: 2px solid #ccc;
+    background-color: #fff;
+    box-shadow: inset 0 0 20px #e0e0e0;
+}
+.theme-light .status-text {
+    color: #008844;
+}
+.theme-light .time-display {
+    color: #181515;
+}
+.theme-light .hand {
+    background-color: #ff3333;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-switcher-container {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-switcher-container button {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: #fff;
+    color: #181515;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-dark .theme-switcher-container button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
+.theme-color .theme-switcher-container button {
+    background: #e0bbff;
+    color: #4b006e;
+    border: 1px solid #a259ff;
+}
+
+/* Light Theme */
+body.theme-light {
+    background-color: #f5f5f5;
+    color: #181515;
+}
+.theme-light .stopwatch {
+    background: radial-gradient(circle, #fff 60%, #e0e0e0 100%);
+    border: 6px solid #bbb;
+    color: #181515;
+}
+.theme-light .container,
+.theme-light .controls button,
+.theme-light .status-text,
+.theme-light .time-display {
+    color: #181515;
+}
+.theme-light .controls button {
+    background: #f5f5f5;
+    color: #181515;
+    border: 1px solid #ddd;
+}
+
+/* Dark Theme */
+body.theme-dark {
+    background-color: #121212;
+    color: #fff;
+}
+.theme-dark .stopwatch {
+    background: radial-gradient(circle, #222 60%, #000 100%);
+    border: 6px solid #333;
+    color: #fff;
+}
+.theme-dark .container,
+.theme-dark .controls button,
+.theme-dark .status-text,
+.theme-dark .time-display {
+    color: #fff;
+}
+.theme-dark .controls button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Color Theme */
+body.theme-color {
+    background-color: #f0e6ff;
+    color: #4b006e;
+}
+.theme-color .stopwatch {
+    background: radial-gradient(circle, #fff0f6 60%, #e0bbff 100%);
+    border: 6px solid #a259ff;
+    color: #4b006e;
+}
+.theme-color .container,
+.theme-color .controls button,
+.theme-color .status-text,
+.theme-color .time-display {
+    color: #4b006e;
+}
+.theme-color .controls button {
+    background: #e0bbff;
+    color: #4b006e;
+    border: 1px solid #a259ff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.stopwatch {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #222 60%, #000 100%);
+    border: 6px solid #333;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dial {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.tick {
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background-color: #888;
+    left: 50%;
+    top: 0;
+    transform-origin: 50% 160px; /* Half of stopwatch width (320/2) */
+}
+
+.tick.major {
+    width: 2px;
+    height: 12px;
+    background-color: #fff;
+}
+
+.tick-number {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    left: 50%;
+    top: 25px;
+    margin-left: -15px; /* Center the element horizontally */
+    transform-origin: 50% 135px; /* Center of the clock (160px - 25px top) */
+    font-size: 14px;
+    color: #ccc;
+    font-weight: bold;
+    /* We will set transform in JS to position it */
+}
+
+.center-panel {
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    border: 2px solid #444;
+    background-color: #1a1a1a;
+    box-shadow: inset 0 0 20px #000;
+}
+
+.status-text {
+    color: #00ff88;
+    font-size: 16px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.time-display {
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* The moving hand */
+.hand {
+    position: absolute;
+    width: 4px;
+    height: 30px; /* Short indicator */
+    background-color: #ff3333;
+    top: 15px; /* Positioned near the ticks */
+    left: 50%;
+    /* 
+       Center of clock is at 160px from top.
+       Element top is at 15px.
+       Distance to center = 160 - 15 = 145px.
+    */
+    transform-origin: 50% 145px;
+    transform: translateX(-50%) rotate(0deg);
+    z-index: 20; /* Ensure it's on top */
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Static marker removed */
+
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#start-btn {
+    background-color: #008844;
+    color: white;
+}
+#start-btn:hover { background-color: #00aa55; }
+
+#stop-btn {
+    background-color: #aa2222;
+    color: white;
+}
+#stop-btn:hover { background-color: #cc3333; }
+
+#reset-btn {
+    background-color: #444;
+    color: white;
+}
+#reset-btn:hover { background-color: #666; }

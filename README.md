@@ -18,7 +18,7 @@ A simple, responsive stopwatch for timing events.
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/stopwatch-project.git
+   git clone https://github.com/ivanalamillopalma22/Stopwatch.git
    ```
 2. **Navigate to the Stopwatch folder**
    ```sh
@@ -50,3 +50,4 @@ This stopwatch is a client-side web app and does not use an external API. All ti
 - `index.html`: Main HTML file
 - `style.css`: Stylesheet
 - `script.js`: Stopwatch logic
+
